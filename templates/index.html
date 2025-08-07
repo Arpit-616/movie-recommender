@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movie Recommender</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <div class="logo">
+                <i class="fas fa-film"></i>
+                <h1>Movie Recommender</h1>
+            </div>
+            <p class="subtitle">Discover your next favorite movie based on genres you love</p>
+        </header>
+
+        <main class="main-content">
+            <div class="search-section">
+                <form method="POST" class="search-form">
+                    <div class="form-group">
+                        <label for="genre">Select a Genre:</label>
+                        <select name="genre" id="genre" required>
+                            <option value="">Choose a genre...</option>
+                            {% for genre in genres %}
+                            <option value="{{ genre }}" {% if genre == selected_genre %}selected{% endif %}>{{ genre.title() }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                    <button type="submit" class="search-btn">
+                        <i class="fas fa-search"></i>
+                        Get Recommendations
+                    </button>
+                </form>
+            </div>
+
+            {% if recommendations %}
+            <div class="results-section">
+                <h2>Recommended Movies</h2>
+                <div class="recommendations-grid">
+                    {% for movie in recommendations %}
+                    <div class="movie-card">
+                        <div class="movie-header">
+                            <h3 class="movie-title">{{ movie[0] }}</h3>
+                            <div class="movie-meta">
+                                <span class="year">{{ movie[4] }}</span>
+                                <span class="rating">⭐ {{ movie[3] }}</span>
+                            </div>
+                            <div class="movie-genres">
+                                <span class="genre-tag main-genre">{{ movie[1] }}</span>
+                                {% if movie[2] and movie[2] != 'nan' %}
+                                    {% for genre in movie[2].split(',') %}
+                                    <span class="genre-tag">{{ genre.strip() }}</span>
+                                    {% endfor %}
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+            {% endif %}
+
+            {% if not recommendations and selected_genre %}
+            <div class="no-results">
+                <i class="fas fa-search"></i>
+                <p>No recommendations found for "{{ selected_genre }}". Try a different genre!</p>
+            </div>
+            {% endif %}
+        </main>
+
+        <footer class="footer">
+            <p>&copy; 2024 Movie Recommender. Built with Flask and Machine Learning.</p>
+        </footer>
+    </div>
+
+    <script>
+        // Add some interactivity
+        document.addEventListener('DOMContentLoaded', function() {
+            const genreSelect = document.getElementById('genre');
+            const searchBtn = document.querySelector('.search-btn');
+            
+            // Enable/disable button based on selection
+            genreSelect.addEventListener('change', function() {
+                if (this.value) {
+                    searchBtn.disabled = false;
+                    searchBtn.classList.add('active');
+                } else {
+                    searchBtn.disabled = true;
+                    searchBtn.classList.remove('active');
+                }
+            });
+
+            // Add loading state
+            document.querySelector('.search-form').addEventListener('submit', function() {
+                searchBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Finding Movies...';
+                searchBtn.disabled = true;
+            });
+        });
+    </script>
+</body>
+</html>
