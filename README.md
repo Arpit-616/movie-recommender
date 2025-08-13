@@ -1,6 +1,13 @@
+<img width="1833" height="1014" alt="image" src="https://github.com/user-attachments/assets/6baa94c0-3ac2-419a-9516-68dfee9f9a38" />
+
+
+
+
+
 # Movie Recommender System
 
-A modern web application that recommends movies based on user-selected genres using machine learning techniques.
+A modern web application that recommends movies based on user-selected genres using machine learning techniques.  
+**Now fully deployed on Render**: [View Live App](https://movie-recommender-jnlm.onrender.com)
 
 ## Features
 
@@ -13,30 +20,30 @@ A modern web application that recommends movies based on user-selected genres us
 ## Project Structure
 
 ```
+
 movie-recommender/
 │
 ├── app.py              # Main Flask application
 ├── templates/
-│   └── index.html     # HTML template
+│   └── index.html      # HTML template
 ├── static/
-│   └── style.css      # CSS styling
-├── vectorizer.pkl     # TF-IDF vectorizer (auto-generated)
-├── vectors.pkl        # Similarity vectors (auto-generated)
-├── movies.csv         # Movie dataset (auto-generated)
-├── requirements.txt   # Python dependencies
-└── README.md         # This file
-```
+│   └── style.css       # CSS styling
+├── vectorizer.pkl      # TF-IDF vectorizer (auto-generated)
+├── vectors.pkl         # Similarity vectors (auto-generated)
+├── movies.csv          # Movie dataset (auto-generated)
+├── requirements.txt    # Python dependencies
+└── README.md           # This file
+
+````
 
 ## Installation
 
 1. **Clone or download the project files**
-
 2. **Install Python dependencies**:
 
    ```bash
    pip install -r requirements.txt
    ```
-
 3. **Run the application**:
 
    ```bash
@@ -56,11 +63,11 @@ movie-recommender/
 
 ### Technology Stack
 
-- **Backend**: Flask (Python web framework)
-- **Machine Learning**: scikit-learn (TF-IDF, Cosine Similarity)
-- **Frontend**: HTML5, CSS3, JavaScript
-- **Styling**: Modern CSS with gradients and animations
-- **Icons**: Font Awesome
+* **Backend**: Flask (Python web framework)
+* **Machine Learning**: scikit-learn (TF-IDF, Cosine Similarity)
+* **Frontend**: HTML5, CSS3, JavaScript
+* **Styling**: Modern CSS with gradients and animations
+* **Icons**: Font Awesome
 
 ## Usage
 
@@ -76,9 +83,9 @@ To use your own movie dataset:
 
 1. Create a `movies.csv` file with columns:
 
-   - `Title`: Movie title
-   - `tags`: Keywords/descriptions
-   - `genres`: Comma-separated genres
+   * `Title`: Movie title
+   * `tags`: Keywords/descriptions
+   * `genres`: Comma-separated genres
 
 2. The system will automatically regenerate the model files when you restart the application.
 
@@ -86,29 +93,29 @@ To use your own movie dataset:
 
 You can customize the recommendation algorithm by editing `app.py`:
 
-- Change `max_features` in TfidfVectorizer for different vocabulary sizes
-- Modify the feature combination in `combined_features`
-- Adjust the number of recommendations returned
+* Change `max_features` in TfidfVectorizer for different vocabulary sizes
+* Modify the feature combination in `combined_features`
+* Adjust the number of recommendations returned
 
 ## Features in Detail
 
 ### Responsive Design
 
-- Works seamlessly on desktop, tablet, and mobile devices
-- Adaptive grid layout for movie cards
-- Touch-friendly interface elements
+* Works seamlessly on desktop, tablet, and mobile devices
+* Adaptive grid layout for movie cards
+* Touch-friendly interface elements
 
 ### User Experience
 
-- Loading animations and smooth transitions
-- Clear visual feedback for user interactions
-- Intuitive genre selection interface
+* Loading animations and smooth transitions
+* Clear visual feedback for user interactions
+* Intuitive genre selection interface
 
 ### Performance
 
-- Efficient TF-IDF vectorization
-- Optimized similarity calculations
-- Fast page loading and response times
+* Efficient TF-IDF vectorization
+* Optimized similarity calculations
+* Fast page loading and response times
 
 ## Troubleshooting
 
@@ -130,12 +137,12 @@ You can customize the recommendation algorithm by editing `app.py`:
 
 ## Future Enhancements
 
-- [ ] User authentication and personalized recommendations
-- [ ] Movie ratings and reviews integration
-- [ ] Advanced filtering options (year, rating, etc.)
-- [ ] Movie poster images and detailed information
-- [ ] Collaborative filtering algorithms
-- [ ] Real-time recommendation updates
+* [ ] User authentication and personalized recommendations
+* [ ] Movie ratings and reviews integration
+* [ ] Advanced filtering options (year, rating, etc.)
+* [ ] Movie poster images and detailed information
+* [ ] Collaborative filtering algorithms
+* [ ] Real-time recommendation updates
 
 ## Contributing
 
@@ -148,3 +155,5 @@ This project is open source and available under the MIT License.
 ---
 
 **Built with ❤️ using Flask and Machine Learning**
+**Live Demo**: [https://your-render-app-url.onrender.com](https://movie-recommender-jnlm.onrender.com)
+
